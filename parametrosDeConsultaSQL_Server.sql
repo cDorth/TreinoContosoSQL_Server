@@ -104,4 +104,4 @@ WHERE ColorName = 'Silver'
 AND 
 BrandName = 'Contoso'
 AND 
-UnitPrice BETWEEN 10 AND 30;
+UnitPrice BETWEEN 10 AND 30 ORDER BY UnitPrice DESC;
