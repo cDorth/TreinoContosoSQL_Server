@@ -31,11 +31,13 @@ FROM FactSales;
 
 --EXERCICIO 1
 SELECT 
-COUNT(SalesQuantity) AS 'QUANTIDADE VENDIDA'
-FROM FactSales;
+SUM(SalesQuantity) AS 'QUANTIDADE VENDIDA'
+FROM FactSales
+WHERE channelKey = 1;
 SELECT 
-COUNT(ReturnQuantity) AS 'RETORNO POR QUANTIDADE'
-FROM FactSales;
+SUM(ReturnQuantity) AS 'RETORNO POR QUANTIDADE'
+FROM FactSales
+WHERE channelKey = 1;
 --EXERCICIO 2
 SELECT
 AVG(YearlyIncome) AS 'MEDIA SALARIAL'
