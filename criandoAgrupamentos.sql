@@ -1,3 +1,4 @@
+USE ContosoRetailDW
 --EXERCICIO 1
 SELECT channelKey AS 'CHAVE DO CANAL',
 SUM(SalesQuantity) AS 'QUANTIDADE VENDIDA'
@@ -13,7 +14,7 @@ GROUP BY StoreKey
 SELECT channelKey AS 'CHAVE DO CANAL',
 SUM(SalesQuantity) AS 'QUANTIDADE VENDIDA'
 FROM FactSales 
-WHERE DateKey = '2007'
+WHERE DateKey BETWEEN '01/01/2007' AND '31/12/2007'
 GROUP BY channelKey
 
 
@@ -42,15 +43,15 @@ ORDER BY SUM(SalesAmount) DESC;
 SELECT * FROM FactOnlineSales
 
 SELECT TOP(1)
-CustomerKey,
+CustomerKey AS 'CHAVE DO CLIENTE',
 SUM(SalesQuantity) AS 'QUANTIDADE COMPRADA'
 FROM FactOnlineSales
 GROUP BY CustomerKey
 ORDER BY COUNT(SalesQuantity) DESC;
 
 SELECT TOP(3)
-ProductKey,
-CustomerKey,
+ProductKey AS 'CHAVE DO PRODUTO',
+CustomerKey AS 'CHAVE DO CLIENTE',
 SUM(SalesQuantity) AS 'QUANTIDADE COMPRADA'
 FROM FactOnlineSales
 WHERE CustomerKey = 19037
@@ -118,8 +119,10 @@ GROUP BY Gender
 
 SELECT 
 Education ,
-COUNT(CustomerKey)
+COUNT(CustomerKey),
+AVG(YearlyIncome) AS 'MEDIA SALARIAL'
 FROM DimCustomer
+WHERE Education IS NOT NULL
 GROUP BY Education
 ORDER BY COUNT(CustomerKey) DESC;
 
@@ -128,7 +131,7 @@ SELECT * FROM DimCustomer
 
 SELECT 
 DepartmentName ,
-COUNT(EmployeeKey)
+COUNT(EmployeeKey) AS 'NUMERO DE FUNCIONARIOS'
 FROM DimEmployee
 WHERE EndDate IS NULL
 GROUP BY DepartmentName
