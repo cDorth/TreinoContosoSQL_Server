@@ -7,7 +7,7 @@ SELECT
 	B.FirstName
 
 FROM DimCustomer AS A
-FULL OUTER JOIN DimEmployee AS B ON A.FirstName = B.FirstName
+FULL JOIN DimEmployee AS B ON A.FirstName = B.FirstName
 WHERE A.FirstName IS NULL OR B.FirstName IS NULL;
 
 --PRODUTO QUE AINDA NÃO FOI VENDIDO
@@ -17,7 +17,7 @@ SELECT
     b.ProductKey
 
 FROM DimProduct AS a
-FULL OUTER JOIN FactSales AS b
+FULL JOIN FactSales AS b
 ON a.ProductKey = b.ProductKey
 WHERE b.ProductKey IS NULL OR a.ProductKey IS NULL;
 
@@ -27,7 +27,7 @@ SELECT
     b.ProductKey
 
 FROM FactOnlineSales AS a
-FULL OUTER JOIN DimProduct AS b
+FULL JOIN DimProduct AS b
 ON a.ProductKey = b.ProductKey
 WHERE b.ProductKey IS NULL OR a.ProductKey IS NULL;
 
@@ -37,7 +37,7 @@ SELECT
     b.CustomerKey
 
 FROM FactOnlineSales AS a
-FULL OUTER JOIN DimCustomer AS b
+FULL JOIN DimCustomer AS b
 ON a.CustomerKey = b.CustomerKey
 WHERE b.CustomerKey IS NULL OR a.CustomerKey IS NULL;
 
@@ -47,7 +47,7 @@ SELECT
     b.StoreKey
 
 FROM FactOnlineSales AS a
-FULL OUTER JOIN DimStore AS b
+FULL JOIN DimStore AS b
 ON a.StoreKey = b.StoreKey
 WHERE b.StoreKey IS NULL OR a.StoreKey IS NULL;
 
@@ -59,7 +59,7 @@ SELECT
     b.StoreKey
 
 FROM DimStore AS a
-FULL OUTER JOIN FactSales AS b
+FULL JOIN FactSales AS b
 ON a.StoreKey = b.StoreKey
 WHERE b.StoreKey IS NULL OR a.StoreKey IS NULL;
 
@@ -70,7 +70,7 @@ SELECT
     b.ProductKey
 
 FROM DimProduct AS a
-FULL OUTER JOIN FactInventory AS b
+FULL JOIN FactInventory AS b
 ON a.ProductKey = b.ProductKey
 WHERE b.ProductKey IS NULL OR a.ProductKey IS NULL;
 
@@ -80,7 +80,7 @@ SELECT
     b.PromotionKey
 
 FROM FactSales AS a
-FULL OUTER JOIN DimPromotion AS b
+FULL JOIN DimPromotion AS b
 ON a.PromotionKey = b.PromotionKey
 WHERE b.PromotionKey IS NULL OR a.PromotionKey IS NULL;
 --(VALOR INSERIDO DE MANEIRA ARTIFICIAL)
