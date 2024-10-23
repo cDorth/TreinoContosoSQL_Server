@@ -143,9 +143,11 @@ Clientes.NomeCliente,
 COUNT(DISTINCT DetalhesPedidos.ProdutoID) AS TotalPedidos
 FROM 
 Clientes
-LEFT JOIN Pedidos ON Clientes.ClienteID = Pedidos.ClienteID
+RIGHT JOIN Pedidos ON Clientes.ClienteID = Pedidos.ClienteID
 INNER JOIN DetalhesPedidos ON DetalhesPedidos.PedidoID = Pedidos.PedidoID
 GROUP BY Clientes.NomeCliente;
+
+select * from DetalhesPedidos
 
 --EXERCICIO 7
 SELECT 
