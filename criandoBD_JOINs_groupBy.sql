@@ -165,8 +165,6 @@ MONTH(Pedidos.DataPedido) AS MES,
 COUNT(Pedidos.PedidoID) AS PEDIDOS
 FROM 
 Pedidos
-INNER JOIN DetalhesPedidos ON Pedidos.PedidoID = DetalhesPedidos.PedidoID
-INNER JOIN Produtos ON DetalhesPedidos.ProdutoID = Produtos.ProdutoID
 GROUP BY YEAR(Pedidos.DataPedido), MONTH(Pedidos.DataPedido)
 ORDER BY YEAR(Pedidos.DataPedido) DESC;
 
