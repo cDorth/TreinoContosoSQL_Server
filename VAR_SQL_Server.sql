@@ -1,5 +1,4 @@
 --EXERCICIO 1
-
 DECLARE @VAL1 INT
 SET @VAL1 = 10
 
@@ -55,13 +54,13 @@ SELECT
 DECLARE @nome VARCHAR(15)
 SET @nome = 'André'
 
-DECLARE @data_nascimento AS DATE
+DECLARE @data_nascimento DATE
 SET @data_nascimento = '10/02/1998'
 
 DECLARE @num_pets INT
 SET @num_pets = 2
 
-SELECT 'MEU NOME É '+ @nome +' NASCI EM '+ CAST(@data_nascimento AS varchar(MAX))+' E TENHO '+CAST(@num_pets AS varchar(MAX))+' PETS' AS TEXTO
+SELECT 'MEU NOME É '+ @nome +' NASCI EM '+ format(CAST(@data_nascimento AS date), 'dd/MM/yyyy')+' E TENHO '+CAST(@num_pets AS varchar(MAX))+' PETS' AS TEXTO
 
 --EXERCICIO 4
 DECLARE @LOJAS VARCHAR(MAX)
